@@ -1,0 +1,79 @@
+/* Common Button's Style */
+.primary-btn{
+	color: $color-white;
+	font-size: 1.2rem;
+	font-family: $font-primary;
+	font-weight: 500;
+	line-height: 1;
+	padding: toEm(11) toEm(15) toEm(6);
+	background-color: $color-primary;
+	border: 2px solid $color-shadow;
+	box-shadow: 0 toEm(2) 0 0 $color-shadow;
+	border-radius: toRem(5);
+	transition:
+		transform .2s cubic-bezier(.06,.67,.37,.99),
+		box-shadow .1s ease-in-out;
+	&--lg{
+		padding: toEm(17) toEm(15) toEm(12);
+	}
+	&:hover,
+	&:active,
+	&:focus-visible{
+		transform: translateY(-.2rem);
+		box-shadow: 0 toEm(4) 0 0 $color-shadow;
+	}
+}
+
+.message-btn{
+	bottom: 4%;
+	right: 2%;
+	cursor: pointer;
+	z-index: 7;
+	background-color: transparent;
+	height: toRem(52);
+	transition: all .1s ease-in-out;
+	@include mobile{
+		bottom: 2%;
+	}
+	&__icon{
+		width: toRem(52);
+		height: toRem(52);
+		background-color: $color-secondary;
+		&__image{
+			max-width: toRem(50);
+			transition: all .1s ease-in-out;
+			&--hover{
+				opacity: 0;
+			}
+		}
+	}
+	&__text{
+		color: $color-white;
+		font-size: 0;
+		visibility: hidden;
+		opacity: 0;
+		line-height: 1;
+		@extend %transition;
+	}
+	&:hover{
+		background-color: $color-secondary;
+		padding-right: toRem(20);
+		.message-btn{
+			&__icon{
+				&__image{
+					&--normal{
+						opacity: 0;
+					}
+					&--hover{
+						opacity: 1;
+					}
+				}
+			}
+			&__text{
+				font-size: toRem(16);
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+	}
+}
